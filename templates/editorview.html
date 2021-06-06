@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .cover {
+            display: block !important;
+        }
+
+        .cover {
+            max-width: 160px;
+        }
+        .container{
+            margin-top: 120px;
+        }
+
+        .cover .issn {
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+        }
+
+        .cover .cover-img {
+            width: 120px;
+            -ms-box-shadow: 0 0 10px 0 rgba(50, 50, 50, .5);
+            -webkit-box-shadow: 0 0 10px 0 rgba(50, 50, 50, .5);
+            -moz-box-shadow: 0 0 10px 0 rgba(50, 50, 50, .5);
+            box-shadow: 0 0 10px 0 rgba(50, 50, 50, .5);
+            margin-bottom: .5rem;
+        }
+        .publication {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+        h1 {
+    font-size: 2.375rem;
+}
+        .publication .publication-sub-title {
+    font-size: 1.33rem;
+}
+        .publication .publication-metrics .publication-metric .info {
+    font-size: 1rem;
+    line-height: 1.4em;
+    white-space: initial!important;
+}
+.tooltip+[role=tooltip] {
+    display: none;
+    z-index: 1;
+}
+        *, :after, :before {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+        .publication .publication-metrics .publication-metric *:not(.info):not(i) {
+    color: #505050!important;
+    font-size: 1.1rem;
+}
+.tooltip span.icon {
+    font-family: Gizmo,'Segoe UI Symbol','Lucida Grande','Arial Unicode MS',sans-serif;
+    color: #007398;
+    vertical-align: baseline;
+    display: inline;
+    float: none;
+}
+        .container-metrics{
+            margin-top: 10px;
+            float: left;
+            width: 5%;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="cover">
+                <a href="https://www.sciencedirect.com/science/journal/24518301" class="cover-img-link" target="_blank"
+                   title="View Articles published in IBRO Reports">
+                    <img class="cover-img"
+                         src="{{dergi.img_src}}"
+                         alt="View Articles published in IBRO Reports" itemprop="image">
+                </a>
+
+                <div class="issn keyword">
+                    ISSN: <span>{{ dergi.ISSN }}</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="publication">
+                <div class="publication-title">
+                    <h1 itemprop="name">{{dergi.dergiAdi}}</h1>
+                </div>
+
+                <div class="publication-sub-title">
+
+                </div>
+
+
+
+
+                <div class="publication-metrics">
+                    <div class="publication-metric">
+                        <a class="publication-metric-label" href="https://www.scopus.com/sourceid/21100788881"
+                           title="More about CiteScore" target="_blank" rel="external"><strong>CiteScore: {{ dergi.citeScore }}</strong></a>
+
+                    </div>
+                </div>
+
+</div>
+            <h1 style="text-align: center;alignment: bottom;font-size: 32px">Editör listesi</h1>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-4" style="margin-top: 50px">
+            <div class="metricss" style="background-color: #ebebeb;
+    padding: .9375rem .9375rem .1rem .9375rem;">
+                <h5>Journal Metrics</h5>
+                <p>CiteScore :<b>{{ dergi.citeScore }}</b> </p>
+                <p>SJR :<b>{{ dergi.SJR }}</b> </p>
+
+                <p>SNIP :<b>{{ dergi.SNIP }}</b> </p>
+                <a class="btn btn-primary" href="/abstracting-indexing/{{ dergi.ISSN }}" role="button">Abstracting/ Indexing</a>
+
+
+
+            </div>
+
+        </div>
+
+
+        <div class="col-sm-8" style="background-color: antiquewhite">
+            {% for result in list %}
+
+                <li class="before">{{ result.Editor }}</li>
+                <p class="before">{{ result.EditorInfo }}</p>
+            {% endfor %}
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .listing-products-info {
+            width: 50%;
+        }
+
+
+        .outerdiv {
+            display: flex;
+            justify-content: center;
+           
+        }
+        .center{
+            width: 960px;
+
+        }
+        .listing-products-links .cta-primary {
+            text-align: center;
+            font-size: 1rem;
+            width: 100%;
+            display: block;
+            justify-content: flex-end;
+            margin-bottom: 0;
+        }
+
+        a.cta-download:not(.link), a.cta-primary, p.cta-download:not(.link) a, p.cta-primary a {
+            background-color: #007398;
+            color: #fff;
+            transition: all .3s ease-in-out;
+        }
+
+        a.cta-download, a.cta-primary, a.cta-secondary, a.cta-tertiary, p.cta-download a, p.cta-primary a, p.cta-secondary a, p.cta-tertiary a {
+            display: inline-block;
+            font-size: 1.25rem;
+            padding: 0 .84rem;
+            line-height: 2.75rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 46.875em) {
+            .listing-products-info {
+                float: none;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        .listing-products-info-image {
+            float: left;
+            max-width: 20%;
+            text-align: center;
+        }
+
+        .listing-products-info-image img {
+            max-width: 100%;
+            max-height: 150px;
+            height: auto;
+
+        }
+
+        .listing-products-info-text {
+            float: left;
+            width: 80%;
+            padding-left: 20px;
+        }
+
+        .listing-products-info-text-title {
+            font-size: 1em;
+        }
+
+        .listing-products-info-text-title a {
+            -webkit-hyphens: initial;
+            -moz-hyphens: initial;
+            hyphens: initial;
+            -ms-word-break: normal;
+            word-break: normal;
+        }
+
+        .listing-products-info-text-meta p {
+            color: #767676;
+            font-size: 15px;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            font-family: NexusSans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+         .row.listing-products {
+            display: flex;
+            align-items: center;
+            padding: 1.3em 0.625em;
+            min-height: 190px;
+            border-bottom: 1px solid #f0e9e9;
+        }
+
+        @media (max-width: 46.875em) {
+            main .row.listing-products {
+                display: block;
+            }
+        }
+
+        .listing-products-prices-list-item input[type=checkbox] {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+
+
+
+
+        label.price-variant span {
+            font-weight: normal;
+        }
+    </style>
+    <title>Hello, world!</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+
+    </span>
+    </div>
+</nav>
+
+
+
+{% for result in dergiModel %}
+    <div class="outerdiv">
+    <div class="center">
+
+
+        <div class="row listing-products " data-identifier="24518301" data-type="journal">
+            <div class="listing-products-info">
+                <div class="listing-products-info-wrap clearfix">
+                    <div class="listing-products-info-image">
+                        <a href="https://www.journals.elsevier.com/ibro-reports">
+                            <img src="{{ result.img_src }}"
+                                 alt="Cover image for IBRO Reports">
+                        </a>
+                    </div>
+                    <div class="listing-products-info-text">
+                        <h5 class="listing-products-info-text-title">
+                            <a href="#" class="external-link"
+                               rel="_external" target="">{{ result.dergiAdi }}</a>
+                        </h5>
+                        <div class="listing-products-info-text-meta">
+                            <p><strong>Product Type: </strong>Journal</p>
+
+
+                            <p><strong>First Published: </strong>2016</p>
+
+
+                            <p>
+                                <strong>SNIP: </strong>{{ result.SNIP }}
+
+                            </p>
+
+                            <p>
+                                <strong>SJR: </strong>{{ result.SJR }}
+
+                            </p>
+
+                            <p><strong>Volumes: </strong>8-9</p>
+
+                            <p><strong>Issues: </strong>2</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listing-products-links single" style="padding-left: 150px">
+                <div class="listing-product-links--inner" style="width: 300px">
+                    <a class="cta-primary view-product-link" href="/articles/{{ result.ISSN }}">Dergi
+                        Detaylarını Gör</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endfor %}
+<div class="container">
+    <div class="row">
+    <div class="col-sm-3 mx-auto" style="align-items: center;background-color: #789ca7">
+    <div class="pagination">
+    <span class="step-links" style="margin-left: auto;margin-right: auto">
+        {% if dergiModel.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ dergiModel.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ dergiModel.number }} of {{ dergiModel.paginator.num_pages }}.
+        </span>
+
+        {% if dergiModel.has_next %}
+            <a href="?page={{ dergiModel.next_page_number }}">next</a>
+            <a href="?page={{ dergiModel.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+    </div>
+    </div>
+</div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+
+
+        table {
+            width: 100%;
+            margin-bottom: 60px;
+
+        }
+
+        table {
+            display: table;
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-color: grey;
+        }
+
+
+
+        .cover {
+            display: block !important;
+        }
+
+        .cover {
+            max-width: 160px;
+        }
+        .container{
+            margin-top: 120px;
+        }
+
+        .cover .issn {
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+        }
+
+        .cover .cover-img {
+            width: 120px;
+            -ms-box-shadow: 0 0 10px 0 rgba(50, 50, 50, .5);
+            -webkit-box-shadow: 0 0 10px 0 rgba(50, 50, 50, .5);
+            -moz-box-shadow: 0 0 10px 0 rgba(50, 50, 50, .5);
+            box-shadow: 0 0 10px 0 rgba(50, 50, 50, .5);
+            margin-bottom: .5rem;
+        }
+        .publication {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+        h1 {
+    font-size: 2.375rem;
+}
+        .publication .publication-sub-title {
+    font-size: 1.33rem;
+}
+        .publication .publication-metrics .publication-metric .info {
+    font-size: 1rem;
+    line-height: 1.4em;
+    white-space: initial!important;
+}
+.tooltip+[role=tooltip] {
+    display: none;
+    z-index: 1;
+}
+        *, :after, :before {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+ul {
+    display: block;
+    margin-left: 0;
+    list-style-type: disc;
+    list-style-position: outside;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+        .publication .publication-metrics .publication-metric *:not(.info):not(i) {
+    color: #505050!important;
+    font-size: 1.1rem;
+}
+.tooltip span.icon {
+    font-family: Gizmo,'Segoe UI Symbol','Lucida Grande','Arial Unicode MS',sans-serif;
+    color: #007398;
+    vertical-align: baseline;
+    display: inline;
+    float: none;
+}
+        .container-metrics{
+            margin-top: 10px;
+            float: left;
+            width: 5%;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="cover">
+                <a href="https://www.sciencedirect.com/science/journal/24518301" class="cover-img-link" target="_blank"
+                   title="View Articles published in IBRO Reports">
+                    <img class="cover-img"
+                         src="{{dergi.img_src}}"
+                         alt="View Articles published in IBRO Reports" itemprop="image">
+                </a>
+
+                <div class="issn keyword">
+                    ISSN: <span>{{ dergi.ISSN }}</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="publication">
+                <div class="publication-title">
+                    <h1 itemprop="name">Abstract and Indexing</h1>
+                </div>
+
+                <div class="publication-sub-title">
+                    <ul class="abstr-index-list">
+                        {% for result in list %}
+
+                            <li class="before">{{ result.list }}</li>
+
+                        {% endfor %}
+                    </ul>
+                </div>
+
+
+
+
+                <div class="publication-metrics">
+                    <div class="publication-metric">
+                        <a class="publication-metric-label" href="https://www.scopus.com/sourceid/21100788881"
+                           title="More about CiteScore" target="_blank" rel="external"><strong>CiteScore: {{ dergi.citeScore }}</strong></a>
+
+                    </div>
+                </div>
+</div>
+
+        </div>
+
+    </div>
+<div class="row">
+    <div class="col-sm-12">
+        <h6 style="text-align: center">Online article publication time</h6>
+        <table class="count3columns" style="margin-left: auto;margin-right: auto;text-align: center">
+        <thead>
+        <tr>
+            <th>Year</th>
+            <th>First</th>
+            <th>Final</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ dergi.last_year }}</td>
+            <td>
+                {{ dergi.first_score }}
+            </td>
+            <td>
+                {{ dergi.final_score }}
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+</html>
